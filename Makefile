@@ -1,3 +1,3 @@
 .PHONY: test
 test:
-	find .  -name '*.py' | xargs python
+	python -m unittest discover
