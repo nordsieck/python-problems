@@ -3,23 +3,17 @@ from typing import *
 
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
-        MAX_INT = 10001 # max value used is 10^4
-        MIN_INT = -10001 # min value used is -10^4
-        
-        sum = 0
-        sums = [(sum := sum + nums[i]) for i in range(len(nums))]
+        curr, globe = nums[0], nums[0]
 
-        maxSum, max, min = sums[0], MIN_INT, 0
-        for i in range(len(sums)):
-            if sums[i] < min:
-                min = sums[i]
-                max = MIN_INT
-            elif sums[i] > max:
-                max = sums[i]
-                if max - min > maxSum:
-                    maxSum = max - min
-                
-        return maxSum
+        for i in range(1, len(nums)):
+            if nums[i] > curr + nums[i]:
+                curr = nums[i]
+            else:
+                curr = curr + nums[i]
+
+            if curr > globe: globe = curr
+
+        return globe
 
 class TestSolution(unittest.TestCase):
     def test_MSA(self):
