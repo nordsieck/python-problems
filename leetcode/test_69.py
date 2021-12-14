@@ -18,8 +18,6 @@ class Solution:
                 if (guess + 1) * (guess + 1) > x: return guess
                 low = guess
             guess = int((high - low) / 2) + low
-
-            print("high: ", high, " low: ", low, " guess: ", guess)
             
         return 0
 
