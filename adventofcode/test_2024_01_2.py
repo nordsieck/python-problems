@@ -18,10 +18,6 @@ def main():
             else:
                 b[val] += 1
 
-    print(a)
-    print(b)
-
-    s = Solution()
     print(s.similarity(a, b))
 
 class Solution:
